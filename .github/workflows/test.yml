@@ -27,7 +27,7 @@ jobs:
           JOIN: ${{ join(github.event.commits.*.message, ', ') }}
         run: echo "$JOIN"
 
-      - name: ramblings of an insane mind CONTAINS paprt deux
+      - name: ramblings of an insane mind CONTAINS part deux
         env:
-          CONTAINS: ${{ contains(join(github.event.commits.*.message, ', '), '#') }}
+          CONTAINS: ${{ !contains(join(github.event.commits.*.message, ', '), '#') }}
         run: echo "$CONTAINS"
